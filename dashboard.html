@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+<body>
+    <h1>Dashboard</h1> 
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui consequatur perspiciatis voluptatibus fugit et in sunt nihil iusto officia, eius assumenda unde quibusdam! Ducimus non dicta explicabo. Illum, ex quod.
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquam, nemo odit repellat velit quasi fugiat voluptatem quam minus molestias numquam tempora corporis, unde accusamus sapiente laudantium accusantium impedit enim autem!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam tenetur ducimus eum impedit eaque accusantium illo ea earum quis tempore delectus tempora perferendis dolores autem, consequatur repellat error, veniam rem.
+    </p>
+    <button id="logout">
+        Logout
+    </button>
+</body>
+<script>
+    window.onload = () => {
+        const user = localStorage.getItem('user')
+        if (!user) {
+            console.log('User is not logged in')
+            window.location.href = 'login.html'
+        } else {
+            const userData = JSON.parse(user)
+            console.log('User is logged in:', userData)
+
+        }
+    }
+
+    let btn = document.querySelector('#logout')
+    btn.addEventListener('click', () => {
+        localStorage.removeItem('user')
+        console.log('User logged out')
+        window.location.href = 'login.html'
+    })
+</script>
+</html>
